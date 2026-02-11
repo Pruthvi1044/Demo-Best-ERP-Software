@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizPlus ERP - Best ERP Software in Chennai</title>
+    <style>
+        /* Color Theme Variables */
+        :root {
+            --primary-dark: #002D55;
+            --brand-blue: #0057A8;
+            --gradient-top: #9CE3FF;
+            --gradient-middle: #C7F1FF;
+            --gradient-bottom: #A8E9FF;
+            --heading-text: #002D55;
+            --sub-text: #00396C;
+            --body-text: #4C6A88;
+            --card-white: #FFFFFF;
+            --line-border: #DCECF7;
+            --footer-dark: #001A33;
+            --accent-light-blue: #71C7E7;
+        }
+
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            line-height: 1.6; 
+            color: var(--body-text); 
+            overflow-x: hidden; 
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero Section - Now Full Screen with Header Gradient */
+        #hero { 
+            background: linear-gradient(135deg, var(--gradient-top), var(--gradient-middle), var(--gradient-bottom)), 
+                        linear-gradient(rgba(0,45,85,0.7), rgba(0,87,168,0.7)), 
+                        url('hero-bg.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-blend-mode: overlay, normal, normal;
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            text-align: center; 
+            color: var(--card-white); 
+            padding-top: 0;
+            position: relative;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--gradient-top), var(--gradient-middle), var(--gradient-bottom));
+            z-index: 1;
+        }
+        #hero > .container {
+            position: relative;
+            z-index: 2;
+        }
+        #hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 1rem; 
+            color: var(--primary-dark);
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+        #hero p { 
+            font-size: 1.3rem; 
+            margin-bottom: 2rem; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            color: var(--primary-dark);
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+        .hero-cta { 
+            background: var(--brand-blue); 
+            color: var(--card-white); 
+            padding: 15px 40px; 
+            border-radius: 50px; 
+            font-size: 1.2rem; 
+            text-decoration: none; 
+            display: inline-block; 
+            transition: all 0.3s; 
+            border: 2px solid var(--accent-light-blue);
+            font-weight: bold;
+        }
+        .hero-cta:hover { 
+            background: var(--primary-dark); 
+            transform: translateY(-3px); 
+        }
+        
+        /* Features Section */
+        #features { 
+            padding: 80px 0; 
+            background: var(--gradient-middle); 
+        }
+        section h2 { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            margin-bottom: 3rem; 
+            color: var(--heading-text); 
+        }
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+        }
+        .feature-card { 
+            background: var(--card-white); 
+            padding: 2rem; 
+            border-radius: 12px; 
+            text-align: center; 
+            box-shadow: 0 5px 20px rgba(0,45,85,0.1); 
+            transition: transform 0.3s;
+            border: 1px solid var(--line-border);
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card i { 
+            font-size: 3rem; 
+            color: var(--accent-light-blue); 
+            margin-bottom: 1rem; 
+            display: block; 
+        }
+        .feature-card h3 { 
+            margin-bottom: 1rem; 
+            color: var(--heading-text); 
+        }
+        .feature-card p {
+            color: var(--body-text);
+        }
+        
+        /* Testimonials Section */
+        #testimonials { 
+            padding: 80px 0; 
+            background: var(--card-white); 
+        }
+        .testimonials-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+        }
+        .testimonial { 
+            background: linear-gradient(135deg, var(--gradient-top), var(--gradient-bottom)); 
+            padding: 2rem; 
+            border-radius: 12px; 
+            text-align: center; 
+            box-shadow: 0 4px 12px rgba(0,45,85,0.1);
+            border: 1px solid var(--line-border);
+        }
+        .testimonial p { 
+            font-style: italic; 
+            margin-bottom: 1rem; 
+            color: var(--sub-text); 
+        }
+        .testimonial-author { 
+            font-weight: bold; 
+            color: var(--brand-blue); 
+        }
+        
+        /* Why Section */
+        #why { 
+            padding: 80px 0; 
+            background: linear-gradient(135deg, var(--brand-blue), var(--primary-dark)); 
+            color: var(--card-white); 
+        }
+        #why h2, #why h3 { 
+            color: var(--card-white); 
+        }
+        #why p {
+            color: var(--gradient-top);
+        }
+        .why-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        .why-point { text-align: center; }
+        
+        /* CTA Section */
+        #cta { 
+            padding: 80px 0; 
+            background: var(--primary-dark); 
+            color: var(--card-white); 
+            text-align: center; 
+        }
+        #cta h2 {
+            color: var(--card-white);
+        }
+        #cta p {
+            color: var(--gradient-top);
+        }
+        #cta form { max-width: 500px; margin: 2rem auto; }
+        #cta input { 
+            width: 100%; 
+            padding: 15px; 
+            margin-bottom: 1rem; 
+            border: 2px solid var(--line-border); 
+            border-radius: 8px; 
+            font-size: 1rem;
+            background: var(--card-white);
+            color: var(--body-text);
+        }
+        #cta button { 
+            background: var(--accent-light-blue); 
+            color: var(--primary-dark); 
+            padding: 15px 40px; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1.2rem; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            width: 100%; 
+            font-weight: bold;
+        }
+        #cta button:hover { 
+            background: var(--brand-blue); 
+            color: var(--card-white);
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            #hero p { font-size: 1.1rem; }
+            section h2 { font-size: 2rem; }
+            .features-grid, .testimonials-grid, .why-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .animate { animation: fadeInUp 0.8s ease forwards; }
+    </style>
+</head>
+<body>
+    <!-- Header completely removed -->
+
+    <section id="hero">
+        <div class="container">
+            <h1>Transform Your Business with BizPlus ERP</h1>
+            <p>Chennai's #1 ERP Software for Manufacturing, Retail & Services. Streamline Operations, Boost Efficiency by 40%.</p>
+            <a href="#cta" class="hero-cta">Get Free Demo Today</a>
+        </div>
+    </section>
+
+    <section id="features" class="animate">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i>📦</i>
+                    <h3>Inventory & SCM</h3>
+                    <p>Real-time tracking, auto-reordering, multi-warehouse support.</p>
+                </div>
+                <div class="feature-card">
+                    <i>💰</i>
+                    <h3>Financial Accounting</h3>
+                    <p>Automated ledgers, GST compliance, instant reports.</p>
+                </div>
+                <div class="feature-card">
+                    <i>👥</i>
+                    <h3>HR Management</h3>
+                    <p>Payroll, attendance, performance analytics.</p>
+                </div>
+                <div class="feature-card">
+                    <i>📈</i>
+                    <h3>CRM & Sales</h3>
+                    <p>Lead tracking, customer portals, sales forecasting.</p>
+                </div>
+                <div class="feature-card">
+                    <i>⚙️</i>
+                    <h3>Production Planning</h3>
+                    <p>Workflow automation, material optimization.</p>
+                </div>
+                <div class="feature-card">
+                    <i>📊</i>
+                    <h3>Dashboards</h3>
+                    <p>Custom KPIs, mobile access, AI insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="animate">
+        <div class="container">
+            <h2>What Chennai Businesses Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"BizPlus ERP transformed our manufacturing operations in Chennai. Real-time inventory boosted efficiency by 35%."</p>
+                    <div class="testimonial-author">– Rajesh Kumar, MD, Chennai Manufacturing Co.</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Outstanding CRM integration. Our sales forecasting is now accurate, helping us grow faster."</p>
+                    <div class="testimonial-author">– Priya Sharma, Operations Head, Retail Chain</div>
+                </div>
+                <div class="testimonial">
+                    <p>"User-friendly dashboards and GST modules saved us hours weekly. Best ERP for SMEs!"</p>
+                    <div class="testimonial-author">– Anil Patel, CFO, Services Firm</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Mobile access streamlined our multi-site operations perfectly for Tamil Nadu."</p>
+                    <div class="testimonial-author">– Lakshmi Devi, Director, Production House</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="animate">
+        <div class="container">
+            <h2>Why BizPlus in Chennai?</h2>
+            <div class="why-grid">
+                <div class="why-point">
+                    <h3>Fast Implementation</h3>
+                    <p>Under 1 week setup with local teams.</p>
+                </div>
+                <div class="why-point">
+                    <h3>Affordable Pricing</h3>
+                    <p>Scalable for SMEs, no hidden costs.</p>
+                </div>
+                <div class="why-point">
+                    <h3>99.9% Uptime</h3>
+                    <p>Cloud-based with Chennai support.</p>
+                </div>
+                <div class="why-point">
+                    <h3>GST Compliant</h3>
+                    <p>Tailored for Indian businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="animate">
+        <div class="container">
+            <h2>Ready to Upgrade Your Business?</h2>
+            <p>Get your free personalized demo today.</p>
+            <form id="demoForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone" required>
+                <button type="submit">Schedule Free Demo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer completely removed -->
+
+    <script>
+        // Smooth Scrolling (updated anchors)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Our team will contact you soon for your free demo.');
+            this.reset();
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+        // Enhanced Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.getElementById('hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
